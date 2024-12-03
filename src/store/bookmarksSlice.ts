@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface BookmarkState {
-  bookmarks: string[]; // Liste des IDs de livres ajoutés aux favoris
+  bookmarks: string[];
 }
 
 const initialState: BookmarkState = {

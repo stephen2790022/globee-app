@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { bookApi } from "../../store/bookApi";
-import { TopCategory } from "../../store/types";
+import { TopCategory } from "../../store/bookApi.types";
 
 export const useHomeService = () => {
   const {

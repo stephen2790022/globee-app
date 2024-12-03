@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "../../styles/theme";
-import { GlobalStyle } from "../../styles/global";
+import { darkTheme, lightTheme } from "../../../styles/theme";
+import { GlobalStyle } from "../../../styles/global";
 import { useEffect, useState } from "react";
 
 const MainContainer = styled.div`
