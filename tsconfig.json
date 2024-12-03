@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "downlevelIteration": true,
+    "lib": ["dom", "esnext"],
+    "types": ["node", "vite/client"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": false,
+    "noErrorTruncation": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "resolvePackageJsonImports": false,
+    "resolvePackageJsonExports": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
