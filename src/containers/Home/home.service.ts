@@ -13,7 +13,7 @@ export const useHomeService = () => {
     return {
       topCategoryList:
         data?.top_category_list.find(
-          (v: TopCategory) => v.id_top_category === "_top",
+          (category: TopCategory) => category.id_top_category === "_top",
         ) || [],
     };
   }, [data]);

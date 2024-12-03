@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Book } from "./bookApi.types";
 
 interface BookmarkState {
-  bookmarks: string[];
+  bookmarks: Book[];
 }
 
 const initialState: BookmarkState = {
@@ -12,12 +13,12 @@ const bookmarksSlice = createSlice({
   name: "bookmarks",
   initialState,
   reducers: {
-    addBookmark: (state, action: PayloadAction<string>) => {
+    addBookmark: (state, action: PayloadAction<Book>) => {
       if (!state.bookmarks.includes(action.payload)) {
         state.bookmarks.push(action.payload);
       }
     },
-    removeBookmark: (state, action: PayloadAction<string>) => {
+    removeBookmark: (state, action: PayloadAction<Book>) => {
       state.bookmarks = state.bookmarks.filter((id) => id !== action.payload);
     },
   },
