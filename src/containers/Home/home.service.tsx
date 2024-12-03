@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { bookSlice } from "../../store/bookSlice";
+import { bookApi } from "../../store/bookApi";
 import { TopCategory } from "../../store/types";
 
 export const useHomeService = () => {
@@ -7,8 +7,8 @@ export const useHomeService = () => {
     data,
     isFetching: isLoadingTopCategoryList,
     error,
-  } = bookSlice.endpoints.fetchBooks.useQuery({});
-  console.log(data);
+  } = bookApi.endpoints.fetchBooks.useQuery({});
+
   const { topCategoryList } = useMemo(() => {
     return {
       topCategoryList:
