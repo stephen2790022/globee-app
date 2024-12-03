@@ -1,8 +1,9 @@
 import { Home } from "../../components/Home/home.component";
-import { bookSlice } from "../../store/bookSlice";
+import { Loader } from "../../components/UI/Loader/loader";
+import { useHomeService } from "./home.service";
 
 export const HomeContainer = () => {
-  const { data } = bookSlice.endpoints.fetchBooks.useQuery({});
-  console.log(data);
-  return <Home />;
+  const { topCategoryList, isLoadingTopCategoryList } = useHomeService();
+  console.log(topCategoryList);
+  return isLoadingTopCategoryList ? <Loader /> : <Home />;
 };

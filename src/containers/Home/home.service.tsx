@@ -3,19 +3,24 @@ import { bookSlice } from "../../store/bookSlice";
 import { TopCategory } from "../../store/types";
 
 export const useHomeService = () => {
-  const { data, isFetching: isLoadingTopCategoryList } =
-    bookSlice.endpoints.fetchBooks.useQuery({});
-  const topCategoryList = useMemo(() => {
+  const {
+    data,
+    isFetching: isLoadingTopCategoryList,
+    error,
+  } = bookSlice.endpoints.fetchBooks.useQuery({});
+  console.log(data);
+  const { topCategoryList } = useMemo(() => {
     return {
-      topCategoryList: data?.top_category_list.filter.find(
-        (cat: TopCategory) => cat.id_top_category === "_top",
-      ),
+      topCategoryList:
+        data?.top_category_list.find(
+          (v: TopCategory) => v.id_top_category === "_top",
+        ) || [],
     };
   }, [data]);
-  console.log(topCategoryList);
 
   return {
     topCategoryList,
     isLoadingTopCategoryList,
+    error,
   };
 };
