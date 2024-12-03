@@ -26,7 +26,7 @@
     "resolvePackageJsonImports": false,
     "resolvePackageJsonExports": false
   },
-  "include": ["src"],
+  "include": ["src", "styles/styled-components.d.ts"], // Add custom declarations here
   "exclude": ["node_modules"],
   "references": [
     {

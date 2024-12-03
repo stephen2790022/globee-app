@@ -1,11 +1,16 @@
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HomeContainer } from "./containers/Home/home.container";
+import { RootLayout } from "./components/Layout/layout";
 
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-      <p>Hello Globy</p>
-    </div>
+    <RootLayout>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeContainer />} />
+        </Routes>
+      </Router>
+    </RootLayout>
   );
 };
 
