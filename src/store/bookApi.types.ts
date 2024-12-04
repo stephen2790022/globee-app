@@ -30,3 +30,7 @@ export interface TopCategory {
 export interface BooksApiResponse {
   top_category_list: TopCategory[];
 }
+
+export type ErrorType = {
+  message: string;
+};

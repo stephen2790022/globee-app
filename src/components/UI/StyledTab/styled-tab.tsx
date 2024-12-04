@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { Content, MainContainer, Tab, TabContainer } from "./styled-tab.style";
-import { useIsDarkMode } from "../../../hooks/useIsDarkMode";
 
 enum TabValues {
   ALL = "all",
@@ -14,7 +13,6 @@ type StyledTabProps = {
 };
 
 export const StyledTab = ({ children }: StyledTabProps) => {
-  const { isDarkMode } = useIsDarkMode();
   const [activeTab, setActiveTab] = useState<TabValues>(TabValues.ALL);
   const isActive = useCallback(
     (tabValue: TabValues) => {
@@ -29,7 +27,6 @@ export const StyledTab = ({ children }: StyledTabProps) => {
           isActive={isActive(TabValues.ALL)}
           onClick={() => setActiveTab(TabValues.ALL)}
           isAllowed
-          isDarkMode={isDarkMode}
         >
           すべて
         </Tab>

@@ -19,7 +19,6 @@ const TabContainer = styled.div`
 type TabType = {
   isActive?: boolean;
   isAllowed: boolean;
-  isDarkMode?: boolean;
 };
 
 const Tab = styled.div<TabType>`

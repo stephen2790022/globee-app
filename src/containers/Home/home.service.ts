@@ -1,26 +1,27 @@
 import { useMemo } from "react";
 import { bookApi } from "../../store/bookApi";
-import { TopCategory } from "../../store/bookApi.types";
+import { ErrorType, TopCategory } from "../../store/bookApi.types";
+import { UseHomeServiceReturnType } from "./home.types";
 
-export const useHomeService = () => {
+export const useHomeService = (): UseHomeServiceReturnType => {
   const {
     data,
-    isFetching: isLoadingTopCategoryList,
+    isFetching: isLoadingTopCategoryData,
     error,
   } = bookApi.endpoints.fetchBooks.useQuery({});
 
-  const { topCategoryList } = useMemo(() => {
+  const { topCategory } = useMemo(() => {
     return {
-      topCategoryList:
+      topCategory:
         data?.top_category_list.find(
           (category: TopCategory) => category.id_top_category === "_top",
-        ) || [],
+        ) || null,
     };
   }, [data]);
 
   return {
-    topCategoryList,
-    isLoadingTopCategoryList,
-    error,
+    topCategoryData: topCategory as TopCategory,
+    isLoadingTopCategoryData,
+    fetchTopCategoryDataError: error as ErrorType,
   };
 };
