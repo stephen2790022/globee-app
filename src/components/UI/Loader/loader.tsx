@@ -1,4 +1,4 @@
-import Gif from "../../../assets/gif/loader.gif";
+import Gif from "../../../assets/gif/loader2.gif";
 import styled from "styled-components";
 
 const LoaderContainer = styled.div`

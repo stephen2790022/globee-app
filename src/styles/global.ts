@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  .swiper-wrapper .swiper-slide {
+    width: fit-content !important; /* Force the style to override */
+
+  }
+
   body {
     margin: 0;
     padding: 0;

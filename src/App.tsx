@@ -1,9 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { BookListContainer } from "./containers/BookListContainer/book-list.container";
 import { RootLayout } from "./components/UI/Layout/layout";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import "swiper/css";
 
 const App = () => {
   return (
@@ -11,7 +15,8 @@ const App = () => {
       <RootLayout>
         <Router>
           <Routes>
-            <Route path="/" element={<BookListContainer />} />
+            <Route path="/" element={<Navigate to="/book_list" replace />} />
+            <Route path="/book_list" element={<BookListContainer />} />
           </Routes>
         </Router>
       </RootLayout>

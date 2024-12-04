@@ -42,8 +42,15 @@ const Tab = styled.div<TabType>`
 
 const Content = styled.div`
   padding: 1rem;
-  font-size: 1rem;
+
   color: ${({ theme }) => theme.colors.text};
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  gap: 1rem;
 `;
 
 const MainContainer = styled.div`
