@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomeContainer } from "./containers/Home/home.container";
+import { BookListContainer } from "./containers/BookListContainer/book-list.container";
 import { RootLayout } from "./components/UI/Layout/layout";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -11,7 +11,7 @@ const App = () => {
       <RootLayout>
         <Router>
           <Routes>
-            <Route path="/" element={<HomeContainer />} />
+            <Route path="/" element={<BookListContainer />} />
           </Routes>
         </Router>
       </RootLayout>

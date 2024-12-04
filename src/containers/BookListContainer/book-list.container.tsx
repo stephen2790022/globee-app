@@ -1,7 +1,7 @@
-import { Home } from "../../components/Home/home.component";
-import { useHomeService } from "./home.service";
+import { BookList } from "../../components/BookList/book-list.component";
+import { useHomeService } from "./book-list.service";
 
-export const HomeContainer = () => {
+export const BookListContainer = () => {
   const {
     topCategoryData,
     isLoadingTopCategoryData,
@@ -9,7 +9,7 @@ export const HomeContainer = () => {
   } = useHomeService();
   console.log(topCategoryData);
   return (
-    <Home
+    <BookList
       isLoadingTopCategoryData={isLoadingTopCategoryData}
       topCategoryData={topCategoryData}
       fetchTopCategoryDataError={fetchTopCategoryDataError}

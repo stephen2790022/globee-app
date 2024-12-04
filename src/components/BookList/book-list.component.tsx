@@ -8,7 +8,7 @@ type HomeProps = {
   fetchTopCategoryDataError: ErrorType;
 };
 
-export const Home = ({
+export const BookList = ({
   topCategoryData,
   isLoadingTopCategoryData,
   fetchTopCategoryDataError,
@@ -20,7 +20,7 @@ export const Home = ({
         if (fetchTopCategoryDataError || !Object.keys(topCategoryData).length) {
           <div>
             {fetchTopCategoryDataError.message ||
-              "データがみつかりませんでした。"}
+              "データが見つかりませんでした。"}
           </div>;
         }
       })()}

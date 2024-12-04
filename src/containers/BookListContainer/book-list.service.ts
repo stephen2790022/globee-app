@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { bookApi } from "../../store/bookApi";
 import { ErrorType, TopCategory } from "../../store/bookApi.types";
-import { UseHomeServiceReturnType } from "./home.types";
+import { UseHomeServiceReturnType } from "./book-list.types";
 
 export const useHomeService = (): UseHomeServiceReturnType => {
   const {
