@@ -6,17 +6,28 @@ const TabContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  padding: 0.5rem 0;
-  gap: 1rem;
   width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
-const Tab = styled.div<{ isActive?: boolean; isAllowed: boolean }>`
+type TabType = {
+  isActive?: boolean;
+  isAllowed: boolean;
+  isDarkMode?: boolean;
+};
+
+const Tab = styled.div<TabType>`
   font-size: 1rem;
   font-weight: bold;
   color: ${({ isActive, theme }) =>
     isActive ? theme.colors.primary : theme.colors.muted};
-  border-bottom: 1px solid
+  border-bottom: 2px solid
     ${({ isActive, theme }) =>
       isActive ? theme.colors.primary : "transparent"};
   padding: 0.5rem 1rem;
@@ -42,7 +53,6 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 `;
 
 export { MainContainer, Content, Tab, TabContainer };

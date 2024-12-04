@@ -1,7 +1,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../../styles/theme";
 import { GlobalStyle } from "../../../styles/global";
-import { useEffect, useState } from "react";
+import { useIsDarkMode } from "../../../hooks/useIsDarkMode";
 
 const MainContainer = styled.div`
   max-width: 1200px;
@@ -14,20 +14,7 @@ const MainContainer = styled.div`
 `;
 
 export const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    () => window.matchMedia("(prefers-color-scheme: dark)").matches,
-  );
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsDarkMode(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  const { isDarkMode } = useIsDarkMode();
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
