@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Section = styled.div`
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;

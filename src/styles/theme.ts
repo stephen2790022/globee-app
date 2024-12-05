@@ -7,22 +7,24 @@ const breakpoints = {
 
 export const lightTheme = {
   colors: {
-    primary: "#FC6767",
+    primary: "#FF233D",
     background: "#FFFFFF",
     text: "#000000",
     border: "#E5E5E5",
-    muted: "#666666",
+    muted: "#959595",
+    bookDetailsBackground: "#FAFAFA",
   },
   breakpoints,
 };
 
 export const darkTheme = {
   colors: {
-    primary: "#FC6767",
+    primary: "#FF233D",
     background: "#1A1A1A",
     text: "#FFFFFF",
     border: "#FFFFFF",
-    muted: "#999999",
+    muted: "#cecece",
+    bookDetailsBackground: "#3B3B3B",
   },
   breakpoints,
 };

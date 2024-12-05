@@ -7,9 +7,9 @@ const MainContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.pc}) {
-    padding: 0.5rem;
+  width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 0;
   }
 `;
 
