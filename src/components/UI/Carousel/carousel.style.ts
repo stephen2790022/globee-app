@@ -8,7 +8,13 @@ const CarouselContainer = styled.div`
 
 const StyledImage = styled.img`
   width: 200px;
-  height: 320px;
+  height: 300px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export { CarouselContainer, StyledImage };
