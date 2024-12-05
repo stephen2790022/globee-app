@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Utilise localStorage par défaut
-import { bookApi } from "./bookApi";
-import bookmarksReducer from "./bookmarksSlice";
+import { bookApi } from "./rtkEndPoints/bookApi";
+import bookmarksReducer from "./reducer/bookmarksSlice";
 
 const persistConfig = {
   key: "bookmarks",

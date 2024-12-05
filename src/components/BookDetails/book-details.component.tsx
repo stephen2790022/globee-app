@@ -1,4 +1,4 @@
-import { Book } from "../../store/bookApi.types";
+import { Book } from "../../store/reducer/bookApi.types";
 import {
   MainContainer,
   BookDetailsWrapper,
@@ -8,6 +8,10 @@ import {
   MetaInfo,
   ButtonGroup,
   StyledButton,
+  FeaturesGrid,
+  FeatureItem,
+  FeatureIcon,
+  FeatureLabel,
 } from "./book-details.style";
 
 type BookDetailsProps = {
@@ -30,12 +34,14 @@ export const BookDetails = ({ bookData }: BookDetailsProps) => {
         </BookDetailsInfosWrapper>
       </BookDetailsWrapper>
       <BookDetailsWrapper>
-        <BookCover src={bookData?.img_url} />
-        <BookDetailsInfosWrapper>
-          <BookTitle>{bookData?.name_book}</BookTitle>
-          <MetaInfo>著者：ヒロ前田、テッド寺倉、ロス・タロック</MetaInfo>
-          <MetaInfo>出版社：アルク</MetaInfo>
-        </BookDetailsInfosWrapper>
+        <FeaturesGrid>
+          {features.map((feature, index) => (
+            <FeatureItem key={index}>
+              <FeatureIcon>{feature.icon}</FeatureIcon>
+              <FeatureLabel>{feature.label}</FeatureLabel>
+            </FeatureItem>
+          ))}
+        </FeaturesGrid>
       </BookDetailsWrapper>
     </MainContainer>
   );
