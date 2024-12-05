@@ -6,7 +6,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 import { CarouselContainer, StyledImage } from "./carousel.style";
-import { Book } from "../../../store/reducer/bookApi.types";
+import { Book } from "../../../store/rtkEndPoints/bookApi.types";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";

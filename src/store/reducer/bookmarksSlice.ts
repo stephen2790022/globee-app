@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Book } from "./bookApi.types";
+import { Book } from "../rtkEndPoints/bookApi.types";
 
 interface BookmarkState {
   bookmarks: Book[];

@@ -1,4 +1,4 @@
-import { Book } from "../../store/reducer/bookApi.types";
+import { Book } from "../../store/rtkEndPoints/bookApi.types";
 import {
   MainContainer,
   BookDetailsWrapper,
@@ -12,6 +12,7 @@ import {
   FeatureItem,
   FeatureIcon,
   FeatureLabel,
+  Badge,
 } from "./book-details.style";
 import { useBookDetailsView } from "./book-details.view";
 
@@ -27,8 +28,12 @@ export const BookDetails = ({ bookData }: BookDetailsProps) => {
         <BookCover src={bookData?.img_url} />
         <BookDetailsInfosWrapper>
           <BookTitle>{bookData?.name_book}</BookTitle>
-          <MetaInfo>著者：ヒロ前田、テッド寺倉、ロス・タロック</MetaInfo>
-          <MetaInfo>出版社：アルク</MetaInfo>
+          <MetaInfo>
+            <Badge>著者</Badge> ヒロ前田、テッド寺倉、ロス・タロック
+          </MetaInfo>
+          <MetaInfo>
+            <Badge>出版社</Badge> アルク
+          </MetaInfo>
           <ButtonGroup>
             <StyledButton>Button 1</StyledButton>
             <StyledButton isPrimary>Button 2</StyledButton>

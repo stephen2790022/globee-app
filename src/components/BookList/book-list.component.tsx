@@ -1,4 +1,4 @@
-import { ErrorType, TopCategory } from "../../store/reducer/bookApi.types";
+import { ErrorType, TopCategory } from "../../store/rtkEndPoints/bookApi.types";
 import { Carousel } from "../UI/Carousel/carousel";
 import { Loader } from "../UI/Loader/loader";
 import { StyledTab } from "../UI/StyledTab/styled-tab";

@@ -26,7 +26,7 @@ const Tab = styled.div<TabType>`
   font-weight: bold;
   color: ${({ isActive, theme }) =>
     isActive ? theme.colors.primary : theme.colors.muted};
-  border-bottom: 3px solid
+  border-bottom: 2px solid
     ${({ isActive, theme }) =>
       isActive ? theme.colors.primary : "transparent"};
   padding: 0.5rem 1rem;

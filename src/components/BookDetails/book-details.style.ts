@@ -19,7 +19,7 @@ export const MainContainer = styled.div`
 
 export const BookDetailsWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem;
   gap: 1rem;
   border-radius: 8px;
@@ -73,7 +73,7 @@ export const ButtonGroup = styled.div`
 `;
 
 export const StyledButton = styled.button<{ isPrimary?: boolean }>`
-  padding: 0.5rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   width: 100%;
   font-size: 0.9rem;
   font-weight: bold;
@@ -123,7 +123,8 @@ export const FeatureItem = styled.div`
   border-radius: 5px;
   padding: 2px;
   background: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.muted};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  cursor: pointer;
 `;
 
 export const FeatureIcon = styled.div`
@@ -138,4 +139,13 @@ export const FeatureIcon = styled.div`
 export const FeatureLabel = styled.span`
   font-size: 10px;
   text-align: center;
+`;
+
+export const Badge = styled.span`
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  margin: 0;
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.muted};
+  padding: 1px 2px;
+  background: ${(props) => props.theme.colors.bookDetailsBackground};
 `;

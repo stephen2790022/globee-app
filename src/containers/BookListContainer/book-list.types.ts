@@ -1,4 +1,4 @@
-import { ErrorType, TopCategory } from "../../store/reducer/bookApi.types";
+import { ErrorType, TopCategory } from "../../store/rtkEndPoints/bookApi.types";
 
 export type UseBookListServiceReturnType = {
   topCategoryData: TopCategory;

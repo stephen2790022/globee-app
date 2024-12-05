@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { bookApi } from "../../store/rtkEndPoints/bookApi";
-import { ErrorType, TopCategory } from "../../store/reducer/bookApi.types";
+import { ErrorType, TopCategory } from "../../store/rtkEndPoints/bookApi.types";
 import { UseBookListServiceReturnType } from "./book-list.types";
 
 export const useBookListService = (): UseBookListServiceReturnType => {
