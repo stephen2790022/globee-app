@@ -1,12 +1,12 @@
 import { BookList } from "../../components/BookList/book-list.component";
-import { useHomeService } from "./book-list.service";
+import { useBookListService } from "./book-list.service";
 
 export const BookListContainer = () => {
   const {
     topCategoryData,
     isLoadingTopCategoryData,
     fetchTopCategoryDataError,
-  } = useHomeService();
+  } = useBookListService();
   console.log(topCategoryData);
   return (
     <BookList

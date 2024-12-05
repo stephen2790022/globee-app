@@ -11,7 +11,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode } from "swiper/modules";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 type CarouselProps = {
   bookList: Book[];
@@ -33,7 +34,7 @@ export const Carousel = ({ bookList }: CarouselProps) => {
       >
         {books.length ? (
           books.map((book) => (
-            <SwiperSlide key={book.id_book}>
+            <SwiperSlide key={uuidv4()}>
               <Link to={`/book/${book.id_book}`}>
                 <StyledImage src={book.img_url} />
               </Link>

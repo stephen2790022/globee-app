@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { bookApi } from "../../store/bookApi";
 import { ErrorType, TopCategory } from "../../store/bookApi.types";
-import { UseHomeServiceReturnType } from "./book-list.types";
+import { UseBookListServiceReturnType } from "./book-list.types";
 
-export const useHomeService = (): UseHomeServiceReturnType => {
+export const useBookListService = (): UseBookListServiceReturnType => {
   const {
     data,
     isFetching: isLoadingTopCategoryData,

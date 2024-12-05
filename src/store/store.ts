@@ -27,7 +27,7 @@ export const store = configureStore({
     }).concat(bookApi.middleware),
 });
 
-export const persistor = persistStore(store); // Persistor pour gérer le stockage persistant
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
