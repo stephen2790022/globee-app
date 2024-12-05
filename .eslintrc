@@ -1,0 +1,7 @@
+{
+  "parser": "@babel/eslint-parser",
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "import/no-unresolved": "off"
+  }
+}

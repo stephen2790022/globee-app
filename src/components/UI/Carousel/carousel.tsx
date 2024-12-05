@@ -23,7 +23,7 @@ export const Carousel = ({ bookList }: CarouselProps) => {
   return (
     <CarouselContainer>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={10}
         spaceBetween={30}
         freeMode={true}
         loop

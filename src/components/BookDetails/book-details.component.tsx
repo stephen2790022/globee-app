@@ -13,12 +13,14 @@ import {
   FeatureIcon,
   FeatureLabel,
 } from "./book-details.style";
+import { useBookDetailsView } from "./book-details.view";
 
 type BookDetailsProps = {
   bookData: Book | null;
 };
 
 export const BookDetails = ({ bookData }: BookDetailsProps) => {
+  const { featureIcons } = useBookDetailsView();
   return (
     <MainContainer>
       <BookDetailsWrapper>
@@ -33,16 +35,20 @@ export const BookDetails = ({ bookData }: BookDetailsProps) => {
           </ButtonGroup>
         </BookDetailsInfosWrapper>
       </BookDetailsWrapper>
-      <BookDetailsWrapper>
-        <FeaturesGrid>
-          {features.map((feature, index) => (
-            <FeatureItem key={index}>
-              <FeatureIcon>{feature.icon}</FeatureIcon>
-              <FeatureLabel>{feature.label}</FeatureLabel>
-            </FeatureItem>
-          ))}
-        </FeaturesGrid>
-      </BookDetailsWrapper>
+      <FeaturesGrid>
+        {featureIcons.map((feature) => (
+          <FeatureItem key={feature.label}>
+            <FeatureIcon>
+              <img
+                src={feature.icon}
+                style={{ width: "100%", height: "100%" }}
+                alt=""
+              />
+            </FeatureIcon>
+            <FeatureLabel>{feature.label}</FeatureLabel>
+          </FeatureItem>
+        ))}
+      </FeaturesGrid>
     </MainContainer>
   );
 };

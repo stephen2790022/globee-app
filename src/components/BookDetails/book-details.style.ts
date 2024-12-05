@@ -13,6 +13,7 @@ export const MainContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
     padding: 0;
+    gap: 1rem;
   }
 `;
 
@@ -102,15 +103,27 @@ export const FeaturesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  padding: 1rem;
+  max-width: 450px; /* Constrain to 450px */
+  width: 100%; /* Responsive to parent width */
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 0 1rem 1rem 1rem;
+  }
 `;
 
 export const FeatureItem = styled.div`
   width: 70px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 2px;
   border-radius: 5px;
+  padding: 2px;
+  background: ${({ theme }) => theme.colors.background};
+  border: 1px solid ${({ theme }) => theme.colors.muted};
 `;
 
 export const FeatureIcon = styled.div`
@@ -123,6 +136,6 @@ export const FeatureIcon = styled.div`
 `;
 
 export const FeatureLabel = styled.span`
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 `;
