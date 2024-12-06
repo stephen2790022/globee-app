@@ -13,10 +13,6 @@ export const useBookDetailsService = () => {
     fetchTopCategoryDataError,
   } = useBookListService();
 
-  // const { test } = useMemo(() => {
-  //   return { test: "ee"}
-  // }, [data]);
-
   const bookData = useMemo(() => {
     if (
       fetchTopCategoryDataError ||

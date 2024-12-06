@@ -4,6 +4,16 @@
 | :-------------------------------------------------------------: | :---------------------------------------------------------------------: |
 | ![Mobile View Image 1](./src/assets/readMePrev/list-mobile.png) | ![Mobile View Details page](./src/assets/readMePrev/details-mobile.png) |
 
+## 技術スタック
+
+- **React**: ユーザーインターフェースの構築に使用。
+
+- **Redux と Redux Toolkit、および Redux Persist**: 状態管理を行い、ページのリロード後もデータを保持。
+
+- **Styled-Components**: CSS-in-JS を用いてユーザーインターフェースをスタイリング。
+
+- **React-Icons**: アプリケーション内でベクターアイコンを使用。
+
 ## How to start
 
 1. `npm install`
