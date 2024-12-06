@@ -13,7 +13,7 @@ export const BookDetailsHeader = () => {
     <HeaderContainer>
       <BackButtonWrapper>
         <BackButton onClick={() => navigate(-1)}>
-          <SlArrowLeft style={{ fontSize: "18px" }} />
+          <SlArrowLeft style={{ fontSize: "16px" }} />
         </BackButton>
         <Title>書籍詳細</Title>
       </BackButtonWrapper>

@@ -27,6 +27,11 @@ type UseBookDetailsViewParams = {
   bookData: Book | null;
 };
 
+export type FeatureIcons = {
+  icon: string;
+  label: string;
+};
+
 export const useBookDetailsView = ({ bookData }: UseBookDetailsViewParams) => {
   const { isDarkMode } = useIsDarkMode();
 
