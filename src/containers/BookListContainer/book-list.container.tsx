@@ -7,7 +7,6 @@ export const BookListContainer = () => {
     isLoadingTopCategoryData,
     fetchTopCategoryDataError,
   } = useBookListService();
-  console.log(topCategoryData);
   return (
     <BookList
       isLoadingTopCategoryData={isLoadingTopCategoryData}
