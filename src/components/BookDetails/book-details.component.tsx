@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Book, ErrorType } from "../../store/rtkEndPoints/bookApi.types";
 import { Loader } from "../UI/Loader/loader";
 import {
@@ -49,7 +50,7 @@ export const BookDetails = ({
   }
 
   return (
-    <>
+    <Fragment key="BookDetailsPage">
       <BookDetailsHeader />
       <MainContainer>
         <BookDetailsContainer>
@@ -89,6 +90,6 @@ export const BookDetails = ({
           ))}
         </FeaturesGrid>
       </MainContainer>
-    </>
+    </Fragment>
   );
 };
