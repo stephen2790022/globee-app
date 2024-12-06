@@ -1,17 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  /* Set border-box globally */
   *, *::before, *::after {
-    box-sizing: border-box; /* Include padding and border in width/height */
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Ensures it fits the viewport */
+    width: 100%; 
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,

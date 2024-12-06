@@ -6,7 +6,6 @@ export const MainContainer = styled.div`
   align-items: center;
   gap: 2rem;
   width: 100%;
-  max-width: 100%;
   padding: 2rem 0;
   background: ${({ theme }) => theme.colors.bookDetailsBackground};
 
