@@ -48,10 +48,6 @@ export const BookCover = styled.img`
   width: 90px;
   height: auto;
   object-fit: cover;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 70px;
-  }
 `;
 
 export const BookTitle = styled.h1`
@@ -93,6 +89,22 @@ export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
     color: ${({ theme, $isPrimary }) =>
       $isPrimary ? theme.colors.primary : theme.colors.background};
     border: 1px solid ${({ theme }) => theme.colors.primary};
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:focus {
+      outline: none;
+      color: ${({ $isPrimary, theme }) =>
+        $isPrimary ? theme.colors.background : theme.colors.primary};
+      background-color: ${({ $isPrimary, theme }) =>
+        $isPrimary ? theme.colors.primary : "transparent"};
+    }
+
+    &:active {
+      color: ${({ $isPrimary, theme }) =>
+        $isPrimary ? theme.colors.background : theme.colors.primary};
+      background-color: ${({ $isPrimary, theme }) =>
+        $isPrimary ? theme.colors.primary : "transparent"};
+    }
   }
 `;
 
