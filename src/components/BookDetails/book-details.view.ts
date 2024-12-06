@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import Marksheet from "../../assets/svg/light/icon_study_marksheet.svg";
 import Quiz from "../../assets/svg/light/icon_study_quiz.svg";
 import Record from "../../assets/svg/light/icon_study_record.svg";
@@ -12,12 +13,39 @@ import DarkSound from "../../assets/svg/dark/icon_study_sound.svg";
 import DarkSw from "../../assets/svg/dark/icon_study_sw.svg";
 import DarkTest from "../../assets/svg/dark/icon_study_test.svg";
 import DarkVocab from "../../assets/svg/dark/icon_study_vocab.svg";
-
+import {
+  addBookmark,
+  removeBookmark,
+} from "../../store/reducer/bookmarksSlice";
+import { RootState } from "../../store/store";
 import { useIsDarkMode } from "../../hooks/useIsDarkMode";
-import { useMemo } from "react";
 
-export const useBookDetailsView = () => {
+import { useMemo } from "react";
+import { Book } from "../../store/rtkEndPoints/bookApi.types";
+
+type UseBookDetailsViewParams = {
+  bookData: Book | null;
+};
+
+export const useBookDetailsView = ({ bookData }: UseBookDetailsViewParams) => {
   const { isDarkMode } = useIsDarkMode();
+
+  const dispatch = useDispatch();
+  const bookmarks = useSelector(
+    (state: RootState) => state.bookmarks.bookmarks,
+  );
+  const isBookmarked = bookmarks.some(
+    (book) => book.id_book === bookData?.id_book,
+  );
+
+  const handleBookmarkToggle = () => {
+    if (!bookData) return;
+    if (isBookmarked) {
+      dispatch(removeBookmark(bookData));
+    } else {
+      dispatch(addBookmark(bookData));
+    }
+  };
 
   const featureIcons = useMemo(
     () => [
@@ -32,5 +60,5 @@ export const useBookDetailsView = () => {
     [isDarkMode],
   );
 
-  return { featureIcons };
+  return { featureIcons, handleBookmarkToggle, isBookmarked };
 };

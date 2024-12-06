@@ -59,15 +59,18 @@ export const BookTitle = styled.h1`
 
 export const ButtonGroup = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   width: 100%;
 `;
 
 export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
-  padding: 0.3rem 1.5rem;
+  padding: 0.2rem 1.5rem;
   width: 100%;
+  max-width: 250px;
+  height: 28px;
+  text-align: center;
   font-size: 0.9rem;
   font-weight: bold;
   border: 1px solid

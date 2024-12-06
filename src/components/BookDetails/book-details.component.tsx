@@ -30,7 +30,8 @@ export const BookDetails = ({
   isLoadingTopCategoryData,
   fetchTopCategoryDataError,
 }: BookDetailsProps) => {
-  const { featureIcons } = useBookDetailsView();
+  const { featureIcons, isBookmarked, handleBookmarkToggle } =
+    useBookDetailsView({ bookData });
 
   if (isLoadingTopCategoryData) return <Loader />;
   if (
@@ -66,8 +67,10 @@ export const BookDetails = ({
               <Badge>出版社</Badge> {bookData?.publisher}
             </MetaInfo>
             <ButtonGroup>
-              <StyledButton>Button 1</StyledButton>
-              <StyledButton $isPrimary>Button 2</StyledButton>
+              <StyledButton onClick={handleBookmarkToggle}>
+                {isBookmarked ? "MyBooks削除" : "MyBooks追加"}
+              </StyledButton>
+              <StyledButton $isPrimary>読み放題中</StyledButton>
             </ButtonGroup>
           </BookInfoContainer>
         </BookDetailsContainer>
