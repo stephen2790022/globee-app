@@ -60,7 +60,7 @@ export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
   border: 1px solid
     ${({ $isPrimary, theme }) =>
       $isPrimary ? "transparent" : theme.colors.primary};
-  border-radius: 4px;
+  border-radius: 5px;
   color: ${({ $isPrimary, theme }) =>
     $isPrimary ? theme.colors.background : theme.colors.primary};
   background-color: ${({ $isPrimary, theme }) =>
