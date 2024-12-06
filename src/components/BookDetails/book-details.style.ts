@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
   align-items: center;
   gap: 2rem;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem;
   background: ${({ theme }) => theme.colors.bookDetailsBackground};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
