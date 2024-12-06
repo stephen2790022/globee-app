@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-// styles/styled-components.d.ts
 import "styled-components";
-import { theme } from "./theme"; // Adjust the path to your theme file
-
-type ThemeType = typeof theme;
+import { Theme } from "./theme";
 
 declare module "styled-components" {
-  export interface DefaultTheme extends ThemeType {}
+  export interface DefaultTheme extends Theme {}
 }
