@@ -1,3 +1,15 @@
+## How to start
+
+1. `npm install`
+2. `npm run dev`
+
+## 確認済みUI環境
+
+- **PC**: Windows → Google Chrome
+- **モバイル**: Google Chrome DevTools (iPhone 12 Pro)
+
+---
+
 ## パフォーマンス最適化
 
 ### フロントエンド

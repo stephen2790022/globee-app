@@ -1,4 +1,5 @@
-import { Book } from "../../store/rtkEndPoints/bookApi.types";
+import { Book, ErrorType } from "../../store/rtkEndPoints/bookApi.types";
+import { Loader } from "../UI/Loader/loader";
 import {
   MainContainer,
   BookDetailsContainer,
@@ -19,10 +20,31 @@ import { useBookDetailsView } from "./book-details.view";
 
 type BookDetailsProps = {
   bookData: Book | null;
+  isLoadingTopCategoryData: boolean;
+  fetchTopCategoryDataError: ErrorType;
 };
 
-export const BookDetails = ({ bookData }: BookDetailsProps) => {
+export const BookDetails = ({
+  bookData,
+  isLoadingTopCategoryData,
+  fetchTopCategoryDataError,
+}: BookDetailsProps) => {
   const { featureIcons } = useBookDetailsView();
+
+  if (isLoadingTopCategoryData) return <Loader />;
+  if (
+    fetchTopCategoryDataError ||
+    (bookData && !Object.keys(bookData).length)
+  ) {
+    return (
+      <MainContainer>
+        <MetaInfo>
+          {fetchTopCategoryDataError?.message ||
+            "データが見つかりませんでした。"}
+        </MetaInfo>
+      </MainContainer>
+    );
+  }
 
   return (
     <MainContainer>

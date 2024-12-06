@@ -5,5 +5,11 @@ export const BookDetailsContainer = () => {
   const { bookData, isLoadingTopCategoryData, fetchTopCategoryDataError } =
     useBookDetailsService();
   console.log(bookData);
-  return <BookDetails bookData={bookData} />;
+  return (
+    <BookDetails
+      bookData={bookData}
+      isLoadingTopCategoryData={isLoadingTopCategoryData}
+      fetchTopCategoryDataError={fetchTopCategoryDataError}
+    />
+  );
 };
