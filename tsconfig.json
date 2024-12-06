@@ -4,11 +4,29 @@
     "lib": ["dom", "esnext"],
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "module": "esnext",
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+
+    "downlevelIteration": true,
+
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": false,
+    "noErrorTruncation": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "resolvePackageJsonImports": false,
+    "resolvePackageJsonExports": false
   },
   "include": ["src", "./setupTests.ts"],
   "exclude": ["node_modules"]
