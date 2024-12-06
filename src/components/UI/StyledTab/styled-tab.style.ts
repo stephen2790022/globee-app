@@ -47,17 +47,6 @@ Tab.defaultProps = {
   $isActive: undefined,
 };
 
-Tab.defaultProps = {
-  theme: {
-    colors: {
-      primary: "#000",
-      muted: "#666",
-      border: "#ccc",
-      text: "#333",
-    },
-  },
-};
-
 const Content = styled.div`
   padding: 1rem;
 
