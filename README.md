@@ -14,6 +14,8 @@
 
 - **React-Icons**: アプリケーション内でベクターアイコンを使用。
 
+- **Jest**: ユニットテスト。
+
 ## How to start
 
 1. `npm install`
