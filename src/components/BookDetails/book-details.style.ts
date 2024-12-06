@@ -94,20 +94,30 @@ export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
       $isPrimary ? theme.colors.primary : theme.colors.background};
     border: 1px solid ${({ theme }) => theme.colors.primary};
   }
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    &:focus {
-      outline: none;
-      color: ${({ $isPrimary, theme }) =>
-        $isPrimary ? theme.colors.background : theme.colors.primary};
-      background-color: ${({ $isPrimary, theme }) =>
-        $isPrimary ? theme.colors.primary : "transparent"};
-    }
 
+  &:focus {
+    outline: none;
+    background-color: ${({ $isPrimary, theme }) =>
+      $isPrimary ? theme.colors.primary : "transparent"};
+    color: ${({ $isPrimary, theme }) =>
+      $isPrimary ? theme.colors.background : theme.colors.primary};
+  }
+
+  &:active {
+    background-color: ${({ $isPrimary, theme }) =>
+      $isPrimary ? theme.colors.primary : "transparent"};
+    color: ${({ $isPrimary, theme }) =>
+      $isPrimary ? theme.colors.background : theme.colors.primary};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover,
+    &:focus,
     &:active {
-      color: ${({ $isPrimary, theme }) =>
-        $isPrimary ? theme.colors.background : theme.colors.primary};
       background-color: ${({ $isPrimary, theme }) =>
         $isPrimary ? theme.colors.primary : "transparent"};
+      color: ${({ $isPrimary, theme }) =>
+        $isPrimary ? theme.colors.background : theme.colors.primary};
     }
   }
 `;
