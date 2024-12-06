@@ -66,12 +66,13 @@ export const ButtonGroup = styled.div`
 `;
 
 export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
-  padding: 0.2rem 1.5rem;
+  padding: 0.2rem 1rem;
   width: 100%;
   max-width: 250px;
+
   height: 28px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 12px;
   font-weight: bold;
   border: 1px solid
     ${({ $isPrimary, theme }) =>

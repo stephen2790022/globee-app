@@ -1,8 +1,8 @@
 ## Preview
 
-| ![PC View Image 1](./src/assets/readMePrev/list-pc.pngassets/readMePrev/) |       ![PC View Image 2](./src/assets/readMePrev/details-pc.png)        |
-| :-----------------------------------------------------------------------: | :---------------------------------------------------------------------: |
-|      ![Mobile View Image 1](./src/assets/readMePrev/list-mobile.png)      | ![Mobile View Details page](./src/assets/readMePrev/details-mobile.png) |
+|     ![PC View Image 1](./src/assets/readMePrev/list-pc.png)     |       ![PC View Image 2](./src/assets/readMePrev/details-pc.png)        |
+| :-------------------------------------------------------------: | :---------------------------------------------------------------------: |
+| ![Mobile View Image 1](./src/assets/readMePrev/list-mobile.png) | ![Mobile View Details page](./src/assets/readMePrev/details-mobile.png) |
 
 ## How to start
 
