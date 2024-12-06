@@ -5,7 +5,7 @@ import {
   BackButtonWrapper,
   HeaderContainer,
   Title,
-} from "./book-details-header.stle";
+} from "./book-details-header.style";
 
 export const BookDetailsHeader = () => {
   const navigate = useNavigate();
