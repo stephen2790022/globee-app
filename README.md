@@ -21,6 +21,10 @@
 1. `npm install`
 2. `npm run dev`
 
+## Test
+
+1. `npm test`
+
 ## 確認済みUI環境
 
 - **PC**: Windows → Google Chrome
