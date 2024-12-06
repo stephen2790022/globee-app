@@ -15,26 +15,26 @@ export const BookList = ({
   isLoadingTopCategoryData,
   fetchTopCategoryDataError,
 }: HomeProps) => {
-  return (
-    <StyledTab>
-      {(() => {
-        if (isLoadingTopCategoryData) return <Loader />;
-        if (fetchTopCategoryDataError || !Object.keys(topCategoryData).length) {
-          return (
-            <div>
-              {fetchTopCategoryDataError.message ||
-                "データが見つかりませんでした。"}
-            </div>
-          );
-        }
+  const renderContent = () => {
+    if (isLoadingTopCategoryData) return <Loader />;
+    if (
+      fetchTopCategoryDataError ||
+      !topCategoryData?.sub_category_list?.length
+    ) {
+      return (
+        <div>
+          {fetchTopCategoryDataError?.message ||
+            "データが見つかりませんでした。"}
+        </div>
+      );
+    }
+    return topCategoryData.sub_category_list.map((subCategory) => (
+      <Section key={subCategory.id_category}>
+        <Title>{subCategory.name_category}</Title>
+        <Carousel bookList={subCategory.book_list} />
+      </Section>
+    ));
+  };
 
-        return topCategoryData.sub_category_list.map((subCategory) => (
-          <Section key={subCategory.id_category}>
-            <Title>{subCategory.name_category}</Title>
-            <Carousel bookList={subCategory.book_list} />
-          </Section>
-        ));
-      })()}
-    </StyledTab>
-  );
+  return <StyledTab>{renderContent()}</StyledTab>;
 };

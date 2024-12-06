@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Content, MainContainer, Tab, TabContainer } from "./styled-tab.style";
 
 enum TabValues {
@@ -20,19 +20,28 @@ export const StyledTab = ({ children }: StyledTabProps) => {
     },
     [activeTab],
   );
+  const tabs = useMemo(
+    () => [
+      { value: TabValues.ALL, label: "すべて", isAllowed: true },
+      { value: TabValues.UNLIMITED, label: "Unlimited", isAllowed: false },
+      { value: TabValues.TOEIC, label: "TOEIC", isAllowed: false },
+      { value: TabValues.EIKEN, label: "英検", isAllowed: false },
+    ],
+    [],
+  );
   return (
     <MainContainer>
       <TabContainer>
-        <Tab
-          isActive={isActive(TabValues.ALL)}
-          onClick={() => setActiveTab(TabValues.ALL)}
-          isAllowed
-        >
-          すべて
-        </Tab>
-        <Tab isAllowed={false}>Unlimited</Tab>
-        <Tab isAllowed={false}>TOEIC</Tab>
-        <Tab isAllowed={false}>英検</Tab>
+        {tabs.map((tab) => (
+          <Tab
+            key={tab.value}
+            $isActive={isActive(tab.value)}
+            onClick={() => tab.isAllowed && setActiveTab(tab.value)}
+            $isAllowed={tab.isAllowed}
+          >
+            {tab.label}
+          </Tab>
+        ))}
       </TabContainer>
       <Content>{children}</Content>
     </MainContainer>

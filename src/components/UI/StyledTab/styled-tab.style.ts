@@ -17,28 +17,43 @@ const TabContainer = styled.div`
 `;
 
 type TabType = {
-  isActive?: boolean;
-  isAllowed: boolean;
+  $isActive?: boolean;
+  $isAllowed: boolean;
 };
 
 const Tab = styled.div<TabType>`
   font-size: 1rem;
   font-weight: bold;
-  color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.primary : theme.colors.muted};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.primary : theme.colors.muted};
   border-bottom: 2px solid
-    ${({ isActive, theme }) =>
-      isActive ? theme.colors.primary : "transparent"};
+    ${({ $isActive, theme }) =>
+      $isActive ? theme.colors.primary : "transparent"};
   padding: 0.5rem 1rem;
-  cursor: ${({ isAllowed }) => (isAllowed ? "pointer" : "not-allowed")};
+  cursor: ${({ $isAllowed }) => ($isAllowed ? "pointer" : "not-allowed")};
+  pointer-events: ${({ $isAllowed }) => ($isAllowed ? "auto" : "none")};
   transition:
     color 0.3s,
     border-bottom-color 0.3s;
 
   &:hover {
-    color: ${({ isAllowed, theme }) => isAllowed && theme.colors.primary};
+    color: ${({ $isAllowed, theme }) => $isAllowed && theme.colors.primary};
   }
 `;
+Tab.defaultProps = {
+  $isActive: undefined,
+};
+
+Tab.defaultProps = {
+  theme: {
+    colors: {
+      primary: "#000",
+      muted: "#666",
+      border: "#ccc",
+      text: "#333",
+    },
+  },
+};
 
 const Content = styled.div`
   padding: 1rem;

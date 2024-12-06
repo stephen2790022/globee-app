@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+## パフォーマンス最適化
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### フロントエンド
 
-Currently, two official plugins are available:
+1. **書籍リストの仮想化:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - [React Virtualized] または [Vue Virtual Scroller] のようなライブラリを使用し、画面に表示される書籍のみをレンダリングすることでDOMの負荷を軽減します。
+   - カバー画像に **遅延読み込み (lazy loading)** を実装し、画面に表示される画像のみを読み込むようにします。
 
-## Expanding the ESLint configuration
+2. **ページネーションまたは無限スクロール:**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   - 書籍をページ単位で分割し、一度に制限されたデータ量のみをロードします。
+   - 無限スクロールを実装し、ユーザーがリストの末尾に到達したときに動的にデータをロードします。
 
-- Configure the top-level `parserOptions` property like this:
+3. **クライアント側のキャッシュ:**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   - `RTK Query` || `Vue Apollo` のようなキャッシュライブラリを使用し、すでに取得したデータを保存することで、不要なAPI呼び出しを回避します。
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. **アセットの圧縮:**
+   - 画像を圧縮（例: WebPなどの最新フォーマットを使用）し、JavaScriptやCSSファイルを最小化して初期読み込み時間を短縮します。
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### バックエンド
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. **サーバー側ページネーション:**
+
+   - ページネーション対応のエンドポイントを実装します（例: `GET /books?page=1&perPage=20`）。これにより、不要なデータをネットワーク経由で送信するのを防ぎます。
+
+2. **データベースのインデックス化:**
+
+   - よく使用されるカラムにインデックスを追加し、検索を高速化します。
+
+3. **サーバー側キャッシュ:**
+
+   - Redisなどのキャッシュを使用し、特に頻繁に使用されるデータ（例: 更新頻度の低いデータ）の取得を高速化します。
+
+4. **コンテンツ配信ネットワーク (CDN):**
+   - 書籍の画像やその他の静的アセットをCDNにホストし、レイテンシーを低減します。
+
+---
+
+## MyBook状態のサーバー管理
+
+MyBook登録の状態をサーバー側で管理するための戦略を以下に示します。
+
+### 通信アーキテクチャ
+
+1. **データモデル:**
+   MyBook状態を管理する専用テーブルを作成します。
+
+```sql
+   CREATE TABLE mybooks (
+     user_id INT NOT NULL,
+     book_id INT NOT NULL,
+     PRIMARY KEY (user_id, book_id),
+     FOREIGN KEY (user_id) REFERENCES users(id),
+     FOREIGN KEY (book_id) REFERENCES books(id)
+   );
+GET /mybooks: ユーザーの登録済み書籍リストを取得します。
+POST /mybooks: 書籍をMyBooksに追加します。
+DELETE /mybooks/:bookId: 書籍をMyBooksから削除します。
 ```

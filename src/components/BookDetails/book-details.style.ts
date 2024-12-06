@@ -5,8 +5,8 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  width: 100%; /* Inherit the width from OuterContainer */
-  max-width: 100%; /* Respect the parent's constraints */
+  width: 100%;
+  max-width: 100%;
   padding: 2rem 0;
   background: ${({ theme }) => theme.colors.bookDetailsBackground};
 
@@ -17,7 +17,7 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const BookDetailsWrapper = styled.div`
+export const BookDetailsContainer = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 1rem;
@@ -25,43 +25,40 @@ export const BookDetailsWrapper = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.background};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 450px; /* Constrain to 450px */
-  width: 100%; /* Responsive to parent width */
+  max-width: 450px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     max-width: 100%;
     box-shadow: none;
-    border-radius: none;
+    border-radius: 0;
+    gap: 0.5rem;
   }
 `;
 
-export const BookDetailsInfosWrapper = styled.div`
+export const BookInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
 `;
 
 export const BookCover = styled.img`
-  width: 90px; /* Fixed width */
-  height: auto; /* Dynamic height based on content */
+  width: 90px;
+  height: auto;
   object-fit: cover;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 70px;
+  }
 `;
 
 export const BookTitle = styled.h1`
   font-size: 17px;
   color: ${({ theme }) => theme.colors.text};
-  text-overflow: ellipsis; /* Adds "..." for overflowing text */
+  text-overflow: ellipsis;
   max-width: 100%;
-`;
-
-export const MetaInfo = styled.p`
-  white-space: nowrap; /* Prevents text from wrapping to the next line */
-  margin: 0;
-  font-size: 12px;
-  color: ${(props) => props.theme.colors.muted};
 `;
 
 export const ButtonGroup = styled.div`
@@ -72,31 +69,50 @@ export const ButtonGroup = styled.div`
   width: 100%;
 `;
 
-export const StyledButton = styled.button<{ isPrimary?: boolean }>`
+export const StyledButton = styled.button<{ $isPrimary?: boolean }>`
   padding: 0.3rem 1.5rem;
   width: 100%;
   font-size: 0.9rem;
   font-weight: bold;
   border: 1px solid
-    ${({ isPrimary, theme }) =>
-      isPrimary ? "transparent" : theme.colors.primary};
+    ${({ $isPrimary, theme }) =>
+      $isPrimary ? "transparent" : theme.colors.primary};
   border-radius: 4px;
-  color: ${({ isPrimary, theme }) =>
-    isPrimary ? theme.colors.background : theme.colors.primary};
-  background-color: ${({ isPrimary, theme }) =>
-    isPrimary ? theme.colors.primary : "transparent"};
+  color: ${({ $isPrimary, theme }) =>
+    $isPrimary ? theme.colors.background : theme.colors.primary};
+  background-color: ${({ $isPrimary, theme }) =>
+    $isPrimary ? theme.colors.primary : "transparent"};
   cursor: pointer;
   transition:
     background-color 0.3s,
     color 0.3s;
 
   &:hover {
-    background-color: ${({ theme, isPrimary }) =>
-      isPrimary ? "transparent" : theme.colors.primary};
-    color: ${({ theme, isPrimary }) =>
-      isPrimary ? theme.colors.primary : theme.colors.background};
+    background-color: ${({ theme, $isPrimary }) =>
+      $isPrimary ? "transparent" : theme.colors.primary};
+    color: ${({ theme, $isPrimary }) =>
+      $isPrimary ? theme.colors.primary : theme.colors.background};
     border: 1px solid ${({ theme }) => theme.colors.primary};
   }
+`;
+
+StyledButton.defaultProps = {
+  $isPrimary: false,
+};
+
+export const Badge = styled.span`
+  white-space: nowrap;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.muted};
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: ${({ theme }) => theme.colors.bookDetailsBackground};
+`;
+
+export const MetaInfo = styled.p`
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.muted};
+  text-align: start;
 `;
 
 export const FeaturesGrid = styled.div`
@@ -104,27 +120,32 @@ export const FeaturesGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   padding: 1rem;
-  max-width: 450px; /* Constrain to 450px */
-  width: 100%; /* Responsive to parent width */
+  max-width: 450px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem;
   }
 `;
 
 export const FeatureItem = styled.div`
-  width: 70px;
-  height: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 5px;
+  width: 70px;
+  height: 70px;
   border-radius: 5px;
   padding: 2px;
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.border};
   cursor: pointer;
+`;
+
+export const FeatureLabel = styled.span`
+  font-size: 10px;
+  text-align: center;
 `;
 
 export const FeatureIcon = styled.div`
@@ -133,19 +154,11 @@ export const FeatureIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.primary};
+  color: ${({ theme }) => theme.primary};
 `;
 
-export const FeatureLabel = styled.span`
-  font-size: 10px;
-  text-align: center;
-`;
-
-export const Badge = styled.span`
-  white-space: nowrap; /* Prevents text from wrapping to the next line */
-  margin: 0;
-  font-size: 12px;
-  color: ${(props) => props.theme.colors.muted};
-  padding: 1px 2px;
-  background: ${(props) => props.theme.colors.bookDetailsBackground};
+export const MetaInfosWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
