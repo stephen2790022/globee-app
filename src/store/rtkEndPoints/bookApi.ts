@@ -12,3 +12,5 @@ export const bookApi = createApi({
     }),
   }),
 });
+
+export const { useFetchBooksQuery } = bookApi;

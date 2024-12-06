@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { bookApi } from "../../store/rtkEndPoints/bookApi";
+import { useFetchBooksQuery } from "../../store/rtkEndPoints/bookApi";
 import { ErrorType, TopCategory } from "../../store/rtkEndPoints/bookApi.types";
 import { UseBookListServiceReturnType } from "./book-list.types";
 
@@ -8,7 +8,7 @@ export const useBookListService = (): UseBookListServiceReturnType => {
     data,
     isFetching: isLoadingTopCategoryData,
     error,
-  } = bookApi.endpoints.fetchBooks.useQuery({});
+  } = useFetchBooksQuery({});
 
   const { topCategory } = useMemo(() => {
     return {

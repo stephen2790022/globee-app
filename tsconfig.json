@@ -1,34 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "downlevelIteration": true,
     "lib": ["dom", "esnext"],
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "useUnknownInCatchVariables": false,
-    "noErrorTruncation": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "styles/styled-components.d.ts", "jest.setup.ts"],
-  "exclude": ["node_modules"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["src", "./setupTests.ts"],
+  "exclude": ["node_modules"]
 }

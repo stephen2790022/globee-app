@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import Marksheet from "../../assets/svg/light/icon_study_marksheet.svg";
 import Quiz from "../../assets/svg/light/icon_study_quiz.svg";
 import Record from "../../assets/svg/light/icon_study_record.svg";
@@ -30,8 +30,8 @@ type UseBookDetailsViewParams = {
 export const useBookDetailsView = ({ bookData }: UseBookDetailsViewParams) => {
   const { isDarkMode } = useIsDarkMode();
 
-  const dispatch = useDispatch();
-  const bookmarks = useSelector(
+  const dispatch = useAppDispatch();
+  const bookmarks = useAppSelector(
     (state: RootState) => state.bookmarks.bookmarks,
   );
   const isBookmarked = bookmarks.some(
