@@ -37,7 +37,7 @@ export const BookDetails = ({
   }
 
   return (
-    <Fragment key="BookDetailsPage">
+    <Fragment>
       <BookDetailsHeader />
       <MainContainer>
         <BookInfos
